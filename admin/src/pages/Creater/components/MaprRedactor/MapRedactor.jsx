@@ -15,10 +15,12 @@ export const MapRedactor = (props) => {
             {area.map((row, i) => 
                 <div className="map-row"key={i}>
                     {row.map((cell, j) => (
-                        <Tooltip title={cell.name}>
+                        <Tooltip 
+                            title={!!cell.name && !!cell.description ? `Тип: ${cell.name} \nОписание: ${cell.description}` : null} 
+                            key={`${i}_${j}`}
+                        >
                             <div 
                                 className="map-cell"
-                                key={`${i}_${j}`}
                                 onClick={() => handleSet(cell)}
                                 style={{ backgroundColor: cell.color }} 
                             ></div>
