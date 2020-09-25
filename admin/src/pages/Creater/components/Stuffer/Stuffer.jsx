@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Radio } from "antd";
+import { Button, Radio } from "antd";
 
 import "./style.scss";
 import { STUFFS } from "../../../../shared/constants";
@@ -8,6 +8,7 @@ export const Stuffer = (props) => {
     const { onChange } = props;
     
     const handleChange = useCallback(({ target }) => {
+        console.log(123);
         const { value } = target;
         !!onChange && onChange(value);
     }, [onChange])
@@ -22,6 +23,7 @@ export const Stuffer = (props) => {
                     >{stuff.name}</Radio.Button>
                 )}
             </Radio.Group>
+            <Button type="default" onClick={() => handleChange({ target: { value: { type: -1 } } })} danger>Удалить</Button>
         </div>
     )
 }

@@ -35,7 +35,8 @@ export const Creater = () => {
 
     const handleSetStuff = useCallback((cell) => {
         if (!!currentStuff) {
-            if (currentStuff.type === 0) {
+            // Если тип объекта стена или очистить
+            if (currentStuff.type === 0 || currentStuff.type === -1) {
                 const cellStuff = { ...currentStuff, ...cell };
                 dispatch(mapCreater.actions.setStuff(cellStuff));
             } else {
@@ -51,7 +52,6 @@ export const Creater = () => {
                 <PageHeader
                     className="site-page-header"
                     title="Редактор"
-                    subTitle="This is a subtitle"
                 />
                 <Stuffer onChange={setCurrentStuff} />
                 <MapRedactor onSet={handleSetStuff} area={area} />
