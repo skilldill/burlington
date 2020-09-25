@@ -1,7 +1,19 @@
 .map-redactor {
+    .map-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     .map-cell {
         width: 20px;
         height: 20px;
         margin: 2px;
+        background-color: aliceblue;
+        cursor: pointer;
+        
+        &:hover {
+            background-color: rgb(208, 233, 255);
+        }
     }
 }

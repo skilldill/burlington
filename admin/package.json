@@ -10,13 +10,17 @@
     "axios": "^0.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
+    "redux-devtools-extension": "^2.13.8"
   },
   "devDependencies": {
-    "sass-node": "^4.11.2",
+    "babel-plugin-root-import": "^6.5.0",
     "react-app-rewired": "^2.1.6",
-    "babel-plugin-root-import": "^6.5.0"
+    "sass-node": "^4.11.2"
   },
   "scripts": {
     "start": "react-scripts start",
