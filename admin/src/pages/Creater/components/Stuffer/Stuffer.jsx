@@ -8,7 +8,6 @@ export const Stuffer = (props) => {
     const { onChange } = props;
     
     const handleChange = useCallback(({ target }) => {
-        console.log(123);
         const { value } = target;
         !!onChange && onChange(value);
     }, [onChange])
@@ -23,7 +22,6 @@ export const Stuffer = (props) => {
                     >{stuff.name}</Radio.Button>
                 )}
             </Radio.Group>
-            <Button type="default" onClick={() => handleChange({ target: { value: { type: -1 } } })} danger>Удалить</Button>
         </div>
     )
 }

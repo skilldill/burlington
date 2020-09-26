@@ -37,7 +37,17 @@ export const Creater = () => {
         if (!!currentStuff) {
             // Если тип объекта стена или очистить
             if (currentStuff.type === 0 || currentStuff.type === -1) {
-                const cellStuff = { ...currentStuff, ...cell };
+                let cellStuff;
+
+                if (currentStuff.type === 0) {
+                    cellStuff = { ...currentStuff, ...cell };
+                }
+
+                if (currentStuff.type === -1) {
+                    const { x, y } = cell;
+                    cellStuff = { x, y };
+                }
+
                 dispatch(mapCreater.actions.setStuff(cellStuff));
             } else {
                 setShowModal(true);
