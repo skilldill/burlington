@@ -4,15 +4,27 @@ import View from '@vkontakte/vkui/dist/components/View/View';
 import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
 import '@vkontakte/vkui/dist/vkui.css';
 
-import Home from './panels/Home';
-import Persik from './panels/Persik';
+import { PANELS } from "./shared/constants";
+import { LibraryList, LibraryMap, Auhtorization } from './panels/';
 
 const App = () => {
-	const [activePanel, setActivePanel] = useState('home');
-	const [fetchedUser, setUser] = useState(null);
+	const [activePanel, setActivePanel] = useState(PANELS.authorization);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 
-	useEffect(() => {
+	return (
+		<View activePanel={activePanel}>
+			<Auhtorization id={PANELS.authorization} go={setActivePanel} />
+			<LibraryList id={PANELS.libraryList} go={setActivePanel} />
+			<LibraryMap id={PANELS.libraryMap} go={setActivePanel} />
+		</View>
+	);
+}
+
+export default App;
+
+// FOR EXAMPLE FATCH USER
+/**
+ * useEffect(() => {
 		bridge.subscribe(({ detail: { type, data }}) => {
 			if (type === 'VKWebAppUpdateConfig') {
 				const schemeAttribute = document.createAttribute('scheme');
@@ -28,17 +40,5 @@ const App = () => {
 		fetchData();
 	}, []);
 
-	const go = e => {
-		setActivePanel(e.currentTarget.dataset.to);
-	};
-
-	return (
-		<View activePanel={activePanel} popout={popout}>
-			<Home id='home' fetchedUser={fetchedUser} go={go} />
-			<Persik id='persik' go={go} />
-		</View>
-	);
-}
-
-export default App;
-
+	
+ */
