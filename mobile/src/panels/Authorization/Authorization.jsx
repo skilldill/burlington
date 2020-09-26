@@ -21,7 +21,7 @@ export const Auhtorization = (props) => {
         if (!!name.length) {
             !!go && go(PANELS.libraryList);
         }
-    }, [go])
+    }, [name, go])
 
     const handleInput = useCallback(({ currentTarget }) => {
         const { value } = currentTarget;
