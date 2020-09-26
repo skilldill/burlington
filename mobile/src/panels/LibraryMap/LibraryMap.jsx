@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 import {Panel, PanelHeader, Group, PanelHeaderBack, Div, Button} from '@vkontakte/vkui';
 import Icon24Qr from '@vkontakte/icons/dist/24/qr';
