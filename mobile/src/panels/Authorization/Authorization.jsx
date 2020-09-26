@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { 
     Panel, 
     Button, 
@@ -15,9 +15,18 @@ import { PANELS } from "../../shared/constants";
 export const Auhtorization = (props) => {
     const { id, go } = props;
 
+    const [name, setName] = useState('');
+
     const handleClick = useCallback(() => {
-        !!go && go(PANELS.libraryList);
+        if (!!name.length) {
+            !!go && go(PANELS.libraryList);
+        }
     }, [go])
+
+    const handleInput = useCallback(({ currentTarget }) => {
+        const { value } = currentTarget;
+        setName(value);
+    }, [setName])
 
     return (
         <Panel id={id}>
@@ -26,7 +35,7 @@ export const Auhtorization = (props) => {
                     <h3 className="auth-title">Вход</h3>
                     <FormLayout>
                         <FormLayoutGroup top="Имя посетителя">
-                            <Input placeholder="Введите имя" />
+                            <Input placeholder="Введите имя" onChange={handleInput} />
                         </FormLayoutGroup>
                         <Button size="xl" onClick={handleClick}>Войти</Button>
                     </FormLayout>
